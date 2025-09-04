@@ -162,3 +162,4 @@ C:\Users\USER\房屋管理系統\PropertyManagementSystem.Tests\obj\Debug\net8.0
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Tests\obj\Debug\net8.0\PropertyManagementSystem.Tests.pdb
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Tests\obj\Debug\net8.0\PropertyManagementSystem.Tests.genruntimeconfig.cache
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Tests\obj\Debug\net8.0\ref\PropertyManagementSystem.Tests.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Tests\obj\Debug\net8.0\PropertyManagementSystem.Tests.sourcelink.json

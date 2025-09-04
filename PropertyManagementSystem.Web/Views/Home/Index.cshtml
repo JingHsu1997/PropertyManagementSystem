@@ -1,8 +1,99 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "首頁";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero-section text-center py-5 mb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">
+            <i class="fas fa-home me-3"></i>房屋物件管理系統
+        </h1>
+        <p class="lead mb-4">專業的房屋物件管理平台，讓您輕鬆管理所有房產資訊</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="@Url.Action("Index", "Properties")" class="btn btn-light btn-lg me-md-2">
+                        <i class="fas fa-search me-2"></i>瀏覽物件
+                    </a>
+                    <a href="@Url.Action("Create", "Properties")" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-plus me-2"></i>新增物件
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="fas fa-building fa-3x text-primary"></i>
+                </div>
+                <h5 class="card-title">物件管理</h5>
+                <p class="card-text">新增、編輯、刪除房屋物件，支援多種類型包含公寓、透天厝、套房、別墅、辦公室、店面等。</p>
+                <a href="@Url.Action("Index", "Properties")" class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-1"></i>開始管理
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="fas fa-search fa-3x text-success"></i>
+                </div>
+                <h5 class="card-title">智慧搜尋</h5>
+                <p class="card-text">多條件搜尋功能，可依城市、區域、類型、狀態、價格範圍等條件快速找到所需物件。</p>
+                <a href="@Url.Action("Index", "Properties")" class="btn btn-success">
+                    <i class="fas fa-arrow-right me-1"></i>開始搜尋
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="fas fa-chart-line fa-3x text-warning"></i>
+                </div>
+                <h5 class="card-title">狀態追蹤</h5>
+                <p class="card-text">完整的物件狀態管理，包含待售、待租、已售、已租、待處理等狀態，清楚掌握每個物件。</p>
+                <a href="@Url.Action("Create", "Properties")" class="btn btn-warning">
+                    <i class="fas fa-arrow-right me-1"></i>新增物件
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-info-circle me-2"></i>系統功能特色
+                </h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>響應式設計，支援各種裝置</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>直覺式操作介面</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>多條件搜尋篩選</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>完整的 CRUD 功能</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>軟刪除安全機制</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Clean Architecture 設計</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

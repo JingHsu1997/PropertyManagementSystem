@@ -19,9 +19,9 @@
                             <option value="">請選擇城市</option>
                             @if (ViewBag.Cities != null)
                             {
-                                @foreach (var city in ViewBag.Cities as string[])
+                                @foreach (var city in ViewBag.Cities as string[] ?? new string[0])
                                 {
-                                    <option value="@city" selected="@(Context.Request.Query["city"] == city)">@city</option>
+                                    <option value="@city" selected="@(Context.Request.Query["city"].ToString() == city)">@city</option>
                                 }
                             }
                         </select>
@@ -37,9 +37,9 @@
                             <option value="">請選擇類型</option>
                             @if (ViewBag.PropertyTypes != null)
                             {
-                                @foreach (var type in ViewBag.PropertyTypes as PropertyManagementSystem.Core.Models.PropertyType[])
+                                @foreach (var type in ViewBag.PropertyTypes as PropertyManagementSystem.Core.Models.PropertyType[] ?? new PropertyManagementSystem.Core.Models.PropertyType[0])
                                 {
-                                    <option value="@((int)type)" selected="@(Context.Request.Query["propertyType"] == ((int)type).ToString())">
+                                    <option value="@((int)type)" selected="@(Context.Request.Query["propertyType"].ToString() == ((int)type).ToString())">
                                         @GetPropertyTypeName(type)
                                     </option>
                                 }
@@ -52,9 +52,9 @@
                             <option value="">請選擇狀態</option>
                             @if (ViewBag.PropertyStatuses != null)
                             {
-                                @foreach (var status in ViewBag.PropertyStatuses as PropertyManagementSystem.Core.Models.PropertyStatus[])
+                                @foreach (var status in ViewBag.PropertyStatuses as PropertyManagementSystem.Core.Models.PropertyStatus[] ?? new PropertyManagementSystem.Core.Models.PropertyStatus[0])
                                 {
-                                    <option value="@((int)status)" selected="@(Context.Request.Query["status"] == ((int)status).ToString())">
+                                    <option value="@((int)status)" selected="@(Context.Request.Query["status"].ToString() == ((int)status).ToString())">
                                         @GetPropertyStatusName(status)
                                     </option>
                                 }

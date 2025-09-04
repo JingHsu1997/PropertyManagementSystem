@@ -9,3 +9,4 @@ C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\refint\PropertyManagementSystem.Core.dll
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.pdb
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\ref\PropertyManagementSystem.Core.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.sourcelink.json

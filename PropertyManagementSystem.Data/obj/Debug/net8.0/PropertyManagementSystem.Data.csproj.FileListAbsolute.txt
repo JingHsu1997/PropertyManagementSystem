@@ -15,3 +15,4 @@ C:\Users\USER\房屋管理系統\PropertyManagementSystem.Data\obj\Debug\net8.0\
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Data\obj\Debug\net8.0\PropertyManagementSystem.Data.pdb
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Data\obj\Debug\net8.0\PropertyManagementSystem.Data.genruntimeconfig.cache
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Data\obj\Debug\net8.0\ref\PropertyManagementSystem.Data.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Data\obj\Debug\net8.0\PropertyManagementSystem.Data.sourcelink.json
