@@ -1,0 +1,167 @@
+@model PropertyManagementSystem.Core.Models.Property
+
+@{
+    ViewData["Title"] = "新增物件";
+}
+
+<div class="container">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="Create" method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">基本資訊</h5>
+                        
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">標題</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">描述</label>
+                            <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="PropertyType" class="form-label">物件類型</label>
+                                    <select asp-for="PropertyType" class="form-select">
+                                        <option value="">請選擇類型</option>
+                                        @if (ViewBag.PropertyTypes != null)
+                                        {
+                                            @foreach (var type in ViewBag.PropertyTypes as PropertyManagementSystem.Core.Models.PropertyType[])
+                                            {
+                                                <option value="@((int)type)">@GetPropertyTypeName(type)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="PropertyType" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Status" class="form-label">狀態</label>
+                                    <select asp-for="Status" class="form-select">
+                                        <option value="">請選擇狀態</option>
+                                        @if (ViewBag.PropertyStatuses != null)
+                                        {
+                                            @foreach (var status in ViewBag.PropertyStatuses as PropertyManagementSystem.Core.Models.PropertyStatus[])
+                                            {
+                                                <option value="@((int)status)">@GetPropertyStatusName(status)</option>
+                                            }
+                                        }
+                                    </select>
+                                    <span asp-validation-for="Status" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Address" class="form-label">地址</label>
+                            <input asp-for="Address" class="form-control" />
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="City" class="form-label">城市</label>
+                                    <input asp-for="City" class="form-control" />
+                                    <span asp-validation-for="City" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="District" class="form-label">區域</label>
+                                    <input asp-for="District" class="form-control" />
+                                    <span asp-validation-for="District" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label">價格</label>
+                            <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="Bedrooms" class="form-label">房間數</label>
+                                    <input asp-for="Bedrooms" class="form-control" type="number" min="1" />
+                                    <span asp-validation-for="Bedrooms" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="Bathrooms" class="form-label">衛浴數</label>
+                                    <input asp-for="Bathrooms" class="form-control" type="number" min="1" />
+                                    <span asp-validation-for="Bathrooms" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label asp-for="AreaInSquareMeters" class="form-label">坪數</label>
+                                    <input asp-for="AreaInSquareMeters" class="form-control" type="number" step="0.01" min="0.1" />
+                                    <span asp-validation-for="AreaInSquareMeters" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImageUrl" class="form-label">圖片網址</label>
+                            <input asp-for="ImageUrl" class="form-control" />
+                            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">返回列表</a>
+                            <button type="submit" class="btn btn-primary">建立</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@functions {
+    private string GetPropertyTypeName(PropertyManagementSystem.Core.Models.PropertyType type)
+    {
+        return type switch
+        {
+            PropertyManagementSystem.Core.Models.PropertyType.Apartment => "公寓",
+            PropertyManagementSystem.Core.Models.PropertyType.House => "透天厝",
+            PropertyManagementSystem.Core.Models.PropertyType.Studio => "套房",
+            PropertyManagementSystem.Core.Models.PropertyType.Villa => "別墅",
+            PropertyManagementSystem.Core.Models.PropertyType.Office => "辦公室",
+            PropertyManagementSystem.Core.Models.PropertyType.Shop => "店面",
+            _ => type.ToString()
+        };
+    }
+
+    private string GetPropertyStatusName(PropertyManagementSystem.Core.Models.PropertyStatus status)
+    {
+        return status switch
+        {
+            PropertyManagementSystem.Core.Models.PropertyStatus.ForSale => "待售",
+            PropertyManagementSystem.Core.Models.PropertyStatus.ForRent => "待租",
+            PropertyManagementSystem.Core.Models.PropertyStatus.Sold => "已售",
+            PropertyManagementSystem.Core.Models.PropertyStatus.Rented => "已租",
+            PropertyManagementSystem.Core.Models.PropertyStatus.Pending => "待處理",
+            _ => status.ToString()
+        };
+    }
+}
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

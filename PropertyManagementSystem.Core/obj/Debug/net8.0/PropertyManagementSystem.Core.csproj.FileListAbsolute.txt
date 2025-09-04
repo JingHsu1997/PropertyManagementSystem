@@ -1,0 +1,11 @@
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\bin\Debug\net8.0\PropertyManagementSystem.Core.deps.json
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\bin\Debug\net8.0\PropertyManagementSystem.Core.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\bin\Debug\net8.0\PropertyManagementSystem.Core.pdb
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.AssemblyInfoInputs.cache
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.AssemblyInfo.cs
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\refint\PropertyManagementSystem.Core.dll
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\PropertyManagementSystem.Core.pdb
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Core\obj\Debug\net8.0\ref\PropertyManagementSystem.Core.dll
