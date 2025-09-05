@@ -17,8 +17,8 @@ namespace PropertyManagementSystem.Data.Repositories
         {
             return await _context.Properties
                 .Include(p => p.Images)
-                .Where(p => p.IsActive)
-                .OrderByDescending(p => p.CreatedDate)
+                .Where(p => !p.IsDeleted)
+                .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
 
@@ -26,16 +26,16 @@ namespace PropertyManagementSystem.Data.Repositories
         {
             return await _context.Properties
                 .Include(p => p.Images)
-                .FirstOrDefaultAsync(p => p.Id == id && p.IsActive);
+                .FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
         }
 
         public async Task<IEnumerable<Property>> SearchAsync(string? city = null, string? district = null, 
-            PropertyType? propertyType = null, PropertyStatus? status = null, 
+            int? typeId = null, int? statusId = null, 
             decimal? minPrice = null, decimal? maxPrice = null)
         {
             var query = _context.Properties
                 .Include(p => p.Images)
-                .Where(p => p.IsActive);
+                .Where(p => !p.IsDeleted);
 
             if (!string.IsNullOrWhiteSpace(city))
             {
@@ -47,14 +47,14 @@ namespace PropertyManagementSystem.Data.Repositories
                 query = query.Where(p => p.District.Contains(district));
             }
 
-            if (propertyType.HasValue)
+            if (typeId.HasValue)
             {
-                query = query.Where(p => p.PropertyType == propertyType.Value);
+                query = query.Where(p => p.TypeId == typeId.Value);
             }
 
-            if (status.HasValue)
+            if (statusId.HasValue)
             {
-                query = query.Where(p => p.Status == status.Value);
+                query = query.Where(p => p.StatusId == statusId.Value);
             }
 
             if (minPrice.HasValue)
@@ -68,7 +68,7 @@ namespace PropertyManagementSystem.Data.Repositories
             }
 
             return await query
-                .OrderByDescending(p => p.CreatedDate)
+                .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
         }
 
@@ -92,9 +92,9 @@ namespace PropertyManagementSystem.Data.Repositories
             if (property == null)
                 return false;
 
-            // Soft delete - mark as inactive
-            property.IsActive = false;
-            property.UpdatedDate = DateTime.UtcNow;
+            // Soft delete - mark as deleted
+            property.IsDeleted = true;
+            property.UpdatedAt = DateTime.UtcNow;
             await _context.SaveChangesAsync();
             return true;
         }
@@ -102,7 +102,7 @@ namespace PropertyManagementSystem.Data.Repositories
         public async Task<bool> ExistsAsync(int id)
         {
             return await _context.Properties
-                .AnyAsync(p => p.Id == id && p.IsActive);
+                .AnyAsync(p => p.Id == id && !p.IsDeleted);
         }
     }
 }

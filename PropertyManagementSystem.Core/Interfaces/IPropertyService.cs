@@ -7,7 +7,7 @@ namespace PropertyManagementSystem.Core.Interfaces
         Task<IEnumerable<Property>> GetAllPropertiesAsync();
         Task<Property?> GetPropertyByIdAsync(int id);
         Task<IEnumerable<Property>> SearchPropertiesAsync(string? city = null, string? district = null, 
-            PropertyType? propertyType = null, PropertyStatus? status = null, 
+            int? typeId = null, int? statusId = null, 
             decimal? minPrice = null, decimal? maxPrice = null);
         Task<Property> CreatePropertyAsync(Property property);
         Task<Property> UpdatePropertyAsync(Property property);

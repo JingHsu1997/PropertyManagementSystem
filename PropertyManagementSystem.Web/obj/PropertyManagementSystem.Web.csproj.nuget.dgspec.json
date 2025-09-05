@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj": {}
+    "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
+    "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
         "projectName": "PropertyManagementSystem.Core",
-        "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
+        "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\obj\\",
+        "outputPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj": {
+    "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj",
         "projectName": "PropertyManagementSystem.Data",
-        "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj",
+        "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\obj\\",
+        "outputPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -97,8 +97,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
-                "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj"
+              "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
+                "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj"
               }
             }
           }
@@ -154,14 +154,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj": {
+    "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj",
         "projectName": "PropertyManagementSystem.Web",
-        "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj",
+        "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Web\\obj\\",
+        "outputPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -182,11 +182,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
-                "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj"
+              "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj": {
+                "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj"
               },
-              "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj": {
-                "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj"
+              "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj": {
+                "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Data\\PropertyManagementSystem.Data.csproj"
               }
             }
           }

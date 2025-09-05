@@ -45,34 +45,41 @@ namespace PropertyManagementSystem.Data
                     .IsRequired()
                     .HasColumnType("decimal(18,2)");
 
-                entity.Property(e => e.AreaInSquareMeters)
+                entity.Property(e => e.Area)
                     .IsRequired()
                     .HasColumnType("decimal(10,2)");
 
-                entity.Property(e => e.PropertyType)
+                entity.Property(e => e.Bedrooms)
                     .IsRequired()
-                    .HasConversion<int>();
+                    .HasColumnType("tinyint");
 
-                entity.Property(e => e.Status)
+                entity.Property(e => e.Bathrooms)
                     .IsRequired()
-                    .HasConversion<int>();
+                    .HasColumnType("tinyint");
 
-                entity.Property(e => e.CreatedDate)
+                entity.Property(e => e.TypeId)
+                    .IsRequired();
+
+                entity.Property(e => e.StatusId)
+                    .IsRequired();
+
+                entity.Property(e => e.CreatedAt)
                     .IsRequired()
                     .HasDefaultValueSql("GETUTCDATE()");
 
-                entity.Property(e => e.IsActive)
-                    .HasDefaultValue(true);
+                entity.Property(e => e.UpdatedAt)
+                    .HasDefaultValueSql("GETUTCDATE()");
 
-                entity.Property(e => e.ImageUrl)
-                    .HasMaxLength(500);
+                entity.Property(e => e.IsDeleted)
+                    .HasDefaultValue(false);
 
                 // Index for better search performance
                 entity.HasIndex(e => e.City);
                 entity.HasIndex(e => e.District);
-                entity.HasIndex(e => e.PropertyType);
-                entity.HasIndex(e => e.Status);
+                entity.HasIndex(e => e.TypeId);
+                entity.HasIndex(e => e.StatusId);
                 entity.HasIndex(e => e.Price);
+                entity.HasIndex(e => e.IsDeleted);
             });
 
             // PropertyImage Entity Configuration
@@ -87,7 +94,10 @@ namespace PropertyManagementSystem.Data
                 entity.Property(e => e.AltText)
                     .HasMaxLength(200);
 
-                entity.Property(e => e.CreatedDate)
+                entity.Property(e => e.SortOrder)
+                    .HasDefaultValue(0);
+
+                entity.Property(e => e.CreatedAt)
                     .IsRequired()
                     .HasDefaultValueSql("GETUTCDATE()");
 

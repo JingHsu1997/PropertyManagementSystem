@@ -33,14 +33,14 @@
                     </div>
                     <div class="col-md-3">
                         <label for="propertyType" class="form-label">物件類型</label>
-                        <select name="propertyType" id="propertyType" class="form-select">
+                        <select name="typeId" id="typeId" class="form-select">
                             <option value="">請選擇類型</option>
                             @if (ViewBag.PropertyTypes != null)
                             {
-                                @foreach (var type in ViewBag.PropertyTypes as PropertyManagementSystem.Core.Models.PropertyType[] ?? new PropertyManagementSystem.Core.Models.PropertyType[0])
+                                @foreach (var type in ViewBag.PropertyTypes)
                                 {
-                                    <option value="@((int)type)" selected="@(Context.Request.Query["propertyType"].ToString() == ((int)type).ToString())">
-                                        @GetPropertyTypeName(type)
+                                    <option value="@type.Id" selected="@(Context.Request.Query["typeId"].ToString() == type.Id.ToString())">
+                                        @type.Name
                                     </option>
                                 }
                             }
@@ -48,14 +48,14 @@
                     </div>
                     <div class="col-md-3">
                         <label for="status" class="form-label">狀態</label>
-                        <select name="status" id="status" class="form-select">
+                        <select name="statusId" id="statusId" class="form-select">
                             <option value="">請選擇狀態</option>
                             @if (ViewBag.PropertyStatuses != null)
                             {
-                                @foreach (var status in ViewBag.PropertyStatuses as PropertyManagementSystem.Core.Models.PropertyStatus[] ?? new PropertyManagementSystem.Core.Models.PropertyStatus[0])
+                                @foreach (var status in ViewBag.PropertyStatuses)
                                 {
-                                    <option value="@((int)status)" selected="@(Context.Request.Query["status"].ToString() == ((int)status).ToString())">
-                                        @GetPropertyStatusName(status)
+                                    <option value="@status.Id" selected="@(Context.Request.Query["statusId"].ToString() == status.Id.ToString())">
+                                        @status.Name
                                     </option>
                                 }
                             }
@@ -95,9 +95,9 @@
         {
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    @if (item.Images != null && item.Images.Any())
                     {
-                        <img src="@item.ImageUrl" class="card-img-top" alt="@item.Title" style="height: 200px; object-fit: cover;">
+                        <img src="@item.Images.First().ImageUrl" class="card-img-top" alt="@item.Title" style="height: 200px; object-fit: cover;">
                     }
                     else
                     {
@@ -114,15 +114,15 @@
                             </small>
                         </div>
                         <div class="mb-2">
-                            <span class="badge bg-info">@GetPropertyTypeName(item.PropertyType)</span>
-                            <span class="badge bg-@GetStatusBadgeClass(item.Status)">@GetPropertyStatusName(item.Status)</span>
+                            <span class="badge bg-info">@GetPropertyTypeName(item.TypeId)</span>
+                            <span class="badge bg-@GetStatusBadgeClass(item.StatusId)">@GetPropertyStatusName(item.StatusId)</span>
                         </div>
                         <div class="mb-2">
                             <strong class="text-primary">NT$ @item.Price.ToString("N0")</strong>
                         </div>
                         <div class="mb-3">
                             <small class="text-muted">
-                                @item.Bedrooms 房 | @item.Bathrooms 衛 | @item.AreaInSquareMeters 坪
+                                @item.Bedrooms 房 | @item.Bathrooms 衛 | @item.Area 坪
                             </small>
                         </div>
                         <div class="mt-auto">
@@ -146,42 +146,35 @@
 </div>
 
 @functions {
-    private string GetPropertyTypeName(PropertyManagementSystem.Core.Models.PropertyType type)
+    private string GetPropertyTypeName(int typeId)
     {
-        return type switch
+        return typeId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyType.Apartment => "公寓",
-            PropertyManagementSystem.Core.Models.PropertyType.House => "透天厝",
-            PropertyManagementSystem.Core.Models.PropertyType.Studio => "套房",
-            PropertyManagementSystem.Core.Models.PropertyType.Villa => "別墅",
-            PropertyManagementSystem.Core.Models.PropertyType.Office => "辦公室",
-            PropertyManagementSystem.Core.Models.PropertyType.Shop => "店面",
-            _ => type.ToString()
+            1 => "公寓",
+            2 => "透天",
+            3 => "電梯大樓",
+            _ => "其他"
         };
     }
 
-    private string GetPropertyStatusName(PropertyManagementSystem.Core.Models.PropertyStatus status)
+    private string GetPropertyStatusName(int statusId)
     {
-        return status switch
+        return statusId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForSale => "待售",
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForRent => "待租",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Sold => "已售",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Rented => "已租",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Pending => "待處理",
-            _ => status.ToString()
+            1 => "待售",
+            2 => "已售",
+            3 => "出租",
+            _ => "其他"
         };
     }
 
-    private string GetStatusBadgeClass(PropertyManagementSystem.Core.Models.PropertyStatus status)
+    private string GetStatusBadgeClass(int statusId)
     {
-        return status switch
+        return statusId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForSale => "success",
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForRent => "primary",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Sold => "dark",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Rented => "dark",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Pending => "warning",
+            1 => "success",
+            2 => "dark",
+            3 => "primary",
             _ => "secondary"
         };
     }

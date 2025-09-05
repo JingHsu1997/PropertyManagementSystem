@@ -174,3 +174,4 @@ C:\Users\USER\房屋管理系統\PropertyManagementSystem.Web\obj\Debug\net8.0\P
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Web\obj\Debug\net8.0\PropertyManagementSystem.Web.genruntimeconfig.cache
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Web\obj\Debug\net8.0\ref\PropertyManagementSystem.Web.dll
 C:\Users\USER\房屋管理系統\PropertyManagementSystem.Web\obj\Debug\net8.0\PropertyManagementSystem.Web.sourcelink.json
+C:\Users\USER\房屋管理系統\PropertyManagementSystem.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

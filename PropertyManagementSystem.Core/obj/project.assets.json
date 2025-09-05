@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
       "projectName": "PropertyManagementSystem.Core",
-      "projectPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
+      "projectPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\PropertyManagementSystem.Core.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\房屋管理系統\\PropertyManagementSystem.Core\\obj\\",
+      "outputPath": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

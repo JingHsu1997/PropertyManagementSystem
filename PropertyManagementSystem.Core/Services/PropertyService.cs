@@ -26,10 +26,10 @@ namespace PropertyManagementSystem.Core.Services
         }
 
         public async Task<IEnumerable<Property>> SearchPropertiesAsync(string? city = null, string? district = null, 
-            PropertyType? propertyType = null, PropertyStatus? status = null, 
+            int? typeId = null, int? statusId = null, 
             decimal? minPrice = null, decimal? maxPrice = null)
         {
-            return await _propertyRepository.SearchAsync(city, district, propertyType, status, minPrice, maxPrice);
+            return await _propertyRepository.SearchAsync(city, district, typeId, statusId, minPrice, maxPrice);
         }
 
         public async Task<Property> CreatePropertyAsync(Property property)
@@ -37,7 +37,7 @@ namespace PropertyManagementSystem.Core.Services
             if (property == null)
                 throw new ArgumentNullException(nameof(property));
 
-            property.CreatedDate = DateTime.UtcNow;
+            property.CreatedAt = DateTime.UtcNow;
             return await _propertyRepository.CreateAsync(property);
         }
 
@@ -49,7 +49,7 @@ namespace PropertyManagementSystem.Core.Services
             if (!await _propertyRepository.ExistsAsync(property.Id))
                 throw new InvalidOperationException($"Property with ID {property.Id} not found.");
 
-            property.UpdatedDate = DateTime.UtcNow;
+            property.UpdatedAt = DateTime.UtcNow;
             return await _propertyRepository.UpdateAsync(property);
         }
 

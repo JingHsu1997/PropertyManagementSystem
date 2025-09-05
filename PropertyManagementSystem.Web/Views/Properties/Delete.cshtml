@@ -21,9 +21,10 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                            @if (Model.Images != null && Model.Images.Any())
                             {
-                                <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Title" style="height: 200px; width: 100%; object-fit: cover;">
+                                var primaryImage = Model.Images.FirstOrDefault(i => i.SortOrder == 0) ?? Model.Images.First();
+                                <img src="@primaryImage.ImageUrl" class="img-fluid rounded" alt="@primaryImage.AltText" style="height: 200px; width: 100%; object-fit: cover;">
                             }
                             else
                             {
@@ -39,8 +40,8 @@
                             <h5 class="mb-3">@Model.Title</h5>
                             
                             <div class="mb-3">
-                                <span class="badge bg-info">@GetPropertyTypeName(Model.PropertyType)</span>
-                                <span class="badge bg-@GetStatusBadgeClass(Model.Status) ms-2">@GetPropertyStatusName(Model.Status)</span>
+                                <span class="badge bg-info">@GetPropertyTypeName(Model.TypeId)</span>
+                                <span class="badge bg-@GetStatusBadgeClass(Model.StatusId) ms-2">@GetPropertyStatusName(Model.StatusId)</span>
                             </div>
 
                             <div class="row mb-3">
@@ -77,7 +78,7 @@
                                 <div class="col-sm-9">
                                     <i class="fas fa-bed me-1"></i>@Model.Bedrooms 房
                                     <i class="fas fa-bath ms-2 me-1"></i>@Model.Bathrooms 衛
-                                    <i class="fas fa-ruler-combined ms-2 me-1"></i>@Model.AreaInSquareMeters 坪
+                                    <i class="fas fa-ruler-combined ms-2 me-1"></i>@Model.Area 坪
                                 </div>
                             </div>
 
@@ -86,7 +87,7 @@
                                     <strong>建立時間：</strong>
                                 </div>
                                 <div class="col-sm-9">
-                                    @Model.CreatedDate.ToString("yyyy/MM/dd HH:mm")
+                                    @Model.CreatedAt.ToString("yyyy/MM/dd HH:mm")
                                 </div>
                             </div>
                         </div>
@@ -128,42 +129,35 @@
 </div>
 
 @functions {
-    private string GetPropertyTypeName(PropertyManagementSystem.Core.Models.PropertyType type)
+    private string GetPropertyTypeName(int typeId)
     {
-        return type switch
+        return typeId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyType.Apartment => "公寓",
-            PropertyManagementSystem.Core.Models.PropertyType.House => "透天厝",
-            PropertyManagementSystem.Core.Models.PropertyType.Studio => "套房",
-            PropertyManagementSystem.Core.Models.PropertyType.Villa => "別墅",
-            PropertyManagementSystem.Core.Models.PropertyType.Office => "辦公室",
-            PropertyManagementSystem.Core.Models.PropertyType.Shop => "店面",
-            _ => type.ToString()
+            1 => "公寓",
+            2 => "透天",
+            3 => "電梯大樓",
+            _ => $"類型 {typeId}"
         };
     }
 
-    private string GetPropertyStatusName(PropertyManagementSystem.Core.Models.PropertyStatus status)
+    private string GetPropertyStatusName(int statusId)
     {
-        return status switch
+        return statusId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForSale => "待售",
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForRent => "待租",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Sold => "已售",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Rented => "已租",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Pending => "待處理",
-            _ => status.ToString()
+            1 => "待售",
+            2 => "已售",
+            3 => "出租",
+            _ => $"狀態 {statusId}"
         };
     }
 
-    private string GetStatusBadgeClass(PropertyManagementSystem.Core.Models.PropertyStatus status)
+    private string GetStatusBadgeClass(int statusId)
     {
-        return status switch
+        return statusId switch
         {
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForSale => "success",
-            PropertyManagementSystem.Core.Models.PropertyStatus.ForRent => "primary",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Sold => "dark",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Rented => "dark",
-            PropertyManagementSystem.Core.Models.PropertyStatus.Pending => "warning",
+            1 => "success",
+            2 => "dark",
+            3 => "primary",
             _ => "secondary"
         };
     }

@@ -40,41 +40,20 @@ namespace PropertyManagementSystem.Core.Models
         
         [Required]
         [Range(1, double.MaxValue)]
-        public double AreaInSquareMeters { get; set; }
+        public decimal Area { get; set; }
         
         [Required]
-        public PropertyType PropertyType { get; set; }
+        public int TypeId { get; set; }
         
         [Required]
-        public PropertyStatus Status { get; set; }
+        public int StatusId { get; set; }
         
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedAt { get; set; }
         
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime UpdatedAt { get; set; }
         
-        public bool IsActive { get; set; } = true;
-        
-        public string? ImageUrl { get; set; }
+        public bool IsDeleted { get; set; } = false;
         
         public List<PropertyImage> Images { get; set; } = new List<PropertyImage>();
-    }
-    
-    public enum PropertyType
-    {
-        Apartment = 1,
-        House = 2,
-        Studio = 3,
-        Villa = 4,
-        Office = 5,
-        Shop = 6
-    }
-    
-    public enum PropertyStatus
-    {
-        ForSale = 1,
-        ForRent = 2,
-        Sold = 3,
-        Rented = 4,
-        Pending = 5
     }
 }

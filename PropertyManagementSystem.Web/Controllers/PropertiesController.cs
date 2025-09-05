@@ -15,14 +15,14 @@ namespace PropertyManagementSystem.Web.Controllers
         }
 
         // GET: Properties
-        public async Task<IActionResult> Index(string? city, string? district, PropertyType? propertyType, 
-            PropertyStatus? status, decimal? minPrice, decimal? maxPrice)
+        public async Task<IActionResult> Index(string? city, string? district, int? typeId, 
+            int? statusId, decimal? minPrice, decimal? maxPrice)
         {
-            var properties = await _propertyService.SearchPropertiesAsync(city, district, propertyType, status, minPrice, maxPrice);
+            var properties = await _propertyService.SearchPropertiesAsync(city, district, typeId, statusId, minPrice, maxPrice);
             
             ViewBag.Cities = new[] { "台北市", "新北市", "桃園市", "台中市", "台南市", "高雄市" };
-            ViewBag.PropertyTypes = Enum.GetValues<PropertyType>();
-            ViewBag.PropertyStatuses = Enum.GetValues<PropertyStatus>();
+            ViewBag.PropertyTypes = new[] { new { Id = 1, Name = "公寓" }, new { Id = 2, Name = "透天" }, new { Id = 3, Name = "電梯大樓" } };
+            ViewBag.PropertyStatuses = new[] { new { Id = 1, Name = "待售" }, new { Id = 2, Name = "已售" }, new { Id = 3, Name = "出租" } };
             
             return View(properties);
         }
@@ -42,8 +42,8 @@ namespace PropertyManagementSystem.Web.Controllers
         // GET: Properties/Create
         public IActionResult Create()
         {
-            ViewBag.PropertyTypes = Enum.GetValues<PropertyType>();
-            ViewBag.PropertyStatuses = Enum.GetValues<PropertyStatus>();
+            ViewBag.PropertyTypes = new[] { new { Id = 1, Name = "公寓" }, new { Id = 2, Name = "透天" }, new { Id = 3, Name = "電梯大樓" } };
+            ViewBag.PropertyStatuses = new[] { new { Id = 1, Name = "待售" }, new { Id = 2, Name = "已售" }, new { Id = 3, Name = "出租" } };
             return View();
         }
 
@@ -54,13 +54,13 @@ namespace PropertyManagementSystem.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                property.CreatedDate = DateTime.UtcNow;
+                property.CreatedAt = DateTime.UtcNow;
                 await _propertyService.CreatePropertyAsync(property);
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.PropertyTypes = Enum.GetValues<PropertyType>();
-            ViewBag.PropertyStatuses = Enum.GetValues<PropertyStatus>();
+            ViewBag.PropertyTypes = new[] { new { Id = 1, Name = "公寓" }, new { Id = 2, Name = "透天" }, new { Id = 3, Name = "電梯大樓" } };
+            ViewBag.PropertyStatuses = new[] { new { Id = 1, Name = "待售" }, new { Id = 2, Name = "已售" }, new { Id = 3, Name = "出租" } };
             return View(property);
         }
 
@@ -73,8 +73,8 @@ namespace PropertyManagementSystem.Web.Controllers
                 return NotFound();
             }
 
-            ViewBag.PropertyTypes = Enum.GetValues<PropertyType>();
-            ViewBag.PropertyStatuses = Enum.GetValues<PropertyStatus>();
+            ViewBag.PropertyTypes = new[] { new { Id = 1, Name = "公寓" }, new { Id = 2, Name = "透天" }, new { Id = 3, Name = "電梯大樓" } };
+            ViewBag.PropertyStatuses = new[] { new { Id = 1, Name = "待售" }, new { Id = 2, Name = "已售" }, new { Id = 3, Name = "出租" } };
             return View(property);
         }
 
@@ -102,8 +102,8 @@ namespace PropertyManagementSystem.Web.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewBag.PropertyTypes = Enum.GetValues<PropertyType>();
-            ViewBag.PropertyStatuses = Enum.GetValues<PropertyStatus>();
+            ViewBag.PropertyTypes = new[] { new { Id = 1, Name = "公寓" }, new { Id = 2, Name = "透天" }, new { Id = 3, Name = "電梯大樓" } };
+            ViewBag.PropertyStatuses = new[] { new { Id = 1, Name = "待售" }, new { Id = 2, Name = "已售" }, new { Id = 3, Name = "出租" } };
             return View(property);
         }
 

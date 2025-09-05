@@ -16,9 +16,9 @@ namespace PropertyManagementSystem.Core.Models
         [StringLength(200)]
         public string? AltText { get; set; }
         
-        public bool IsPrimary { get; set; }
+        public int SortOrder { get; set; }
         
-        public DateTime CreatedDate { get; set; }
+        public DateTime CreatedAt { get; set; }
         
         public Property Property { get; set; } = null!;
     }
