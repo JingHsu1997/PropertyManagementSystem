@@ -1,0 +1,16 @@
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\bin\Release\net8.0\PropertyManagementSystem.Data.deps.json
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\bin\Release\net8.0\PropertyManagementSystem.Data.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\bin\Release\net8.0\PropertyManagementSystem.Data.pdb
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\bin\Release\net8.0\PropertyManagementSystem.Core.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\bin\Release\net8.0\PropertyManagementSystem.Core.pdb
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.csproj.AssemblyReference.cache
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.AssemblyInfoInputs.cache
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.AssemblyInfo.cs
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.csproj.CoreCompileInputs.cache
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.sourcelink.json
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\Property.DEE377D6.Up2Date
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\refint\PropertyManagementSystem.Data.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\PropertyManagementSystem.Data.pdb
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Data\obj\Release\net8.0\ref\PropertyManagementSystem.Data.dll

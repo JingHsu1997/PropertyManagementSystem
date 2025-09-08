@@ -1,0 +1,12 @@
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\bin\Release\net8.0\PropertyManagementSystem.Core.deps.json
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\bin\Release\net8.0\PropertyManagementSystem.Core.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\bin\Release\net8.0\PropertyManagementSystem.Core.pdb
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.AssemblyInfoInputs.cache
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.AssemblyInfo.cs
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.csproj.CoreCompileInputs.cache
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.sourcelink.json
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\refint\PropertyManagementSystem.Core.dll
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\PropertyManagementSystem.Core.pdb
+C:\Users\USER\HouseManagementSystem\PropertyManagementSystem.Core\obj\Release\net8.0\ref\PropertyManagementSystem.Core.dll

@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{63D725CF-3DD6-4EDA-AF1E-3BAFFB79DA3E}|PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj|c:\\users\\user\\housemanagementsystem\\propertymanagementsystem.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63D725CF-3DD6-4EDA-AF1E-3BAFFB79DA3E}|PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj|solutionrelative:propertymanagementsystem.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63D725CF-3DD6-4EDA-AF1E-3BAFFB79DA3E}|PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj|c:\\users\\user\\housemanagementsystem\\propertymanagementsystem.web\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63D725CF-3DD6-4EDA-AF1E-3BAFFB79DA3E}|PropertyManagementSystem.Web\\PropertyManagementSystem.Web.csproj|solutionrelative:propertymanagementsystem.web\\controllers\\propertiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1003,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PropertiesController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\Controllers\\PropertiesController.cs",
+              "RelativeDocumentMoniker": "PropertyManagementSystem.Web\\Controllers\\PropertiesController.cs",
+              "ToolTip": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\Controllers\\PropertiesController.cs",
+              "RelativeToolTip": "PropertyManagementSystem.Web\\Controllers\\PropertiesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T03:01:53.3Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +44,7 @@
               "RelativeDocumentMoniker": "PropertyManagementSystem.Web\\appsettings.json",
               "ToolTip": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\appsettings.json",
               "RelativeToolTip": "PropertyManagementSystem.Web\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-09-05T10:46:58.838Z",
               "EditorCaption": ""
@@ -41,7 +57,7 @@
               "RelativeDocumentMoniker": "PropertyManagementSystem.Web\\Program.cs",
               "ToolTip": "C:\\Users\\USER\\HouseManagementSystem\\PropertyManagementSystem.Web\\Program.cs",
               "RelativeToolTip": "PropertyManagementSystem.Web\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAQwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-05T06:58:02.863Z",
               "EditorCaption": ""

@@ -1,13 +1,13 @@
 # 房屋物件管理系統
 
-一個基於 ASP.NET Core MVC 的房屋物件管理系統，參考永慶房屋網站功能設計。
+一個基於 ASP.NET Core MVC 的房屋物件管理系統，提供完整的房屋物件CRUD功能。
 
 ## 技術規格
 
 - **框架**: ASP.NET Core 8.0 MVC
 - **語言**: C#
 - **資料庫**: SQL Server (Docker)
-- **ORM**: Entity Framework Core
+- **ORM**: Dapper
 - **測試**: xUnit + Moq
 - **架構**: Clean Architecture (分層架構)
 
@@ -16,39 +16,38 @@
 ```
 PropertyManagementSystem/
 ├── PropertyManagementSystem.Core/     # 業務邏輯層
-│   ├── Models/                        # 實體模型
+│   ├── Models/                        # 實體模型 (Property, PropertyImage)
 │   ├── Interfaces/                    # 介面定義
 │   └── Services/                      # 業務服務
 ├── PropertyManagementSystem.Data/     # 資料存取層
 │   ├── Repositories/                  # Repository 實作
-│   └── PropertyDbContext.cs          # EF Core DbContext
+│   ├── PropertyDbContext.cs          # Dapper 資料存取
+│   └── SqlConnectionFactory.cs       # 資料庫連線工廠
 ├── PropertyManagementSystem.Web/      # 展示層 (MVC)
 │   ├── Controllers/                   # MVC 控制器
 │   ├── Views/                         # Razor 視圖
-│   └── Models/                        # 視圖模型
-└── PropertyManagementSystem.Tests/    # 單元測試
+│   └── wwwroot/                       # 靜態資源
+├── PropertyManagementSystem.Tests/    # 單元測試
+├── docker-compose.yml                # Docker 容器配置
+└── CreatePropertyDb.sql               # 資料庫初始化腳本
 ```
 
 ## 功能特色
 
 ### 房屋物件管理
-- 新增、編輯、刪除房屋物件
-- 房屋物件搜尋與篩選
-- 支援多種物件類型：公寓、透天厝、套房、別墅、辦公室、店面
-- 物件狀態管理：待售、待租、已售、已租、待處理
-
-### 搜尋功能
-- 按城市搜尋
-- 按區域搜尋
-- 按物件類型篩選
-- 按狀態篩選
-- 價格範圍篩選
+- ✅ 新增、編輯、刪除房屋物件
+- ✅ 房屋物件搜尋與篩選 (城市、區域、類型、狀態、價格範圍)
+- ✅ 支援多種物件類型：公寓、透天厝、套房、別墅、辦公室、店面
+- ✅ 物件狀態管理：待售、待租、已售、已租、待處理
+- ✅ 圖片上傳功能 (URL方式)
+- ✅ Modal確認刪除 (無需跳轉頁面)
 
 ### 技術特點
 - Repository Pattern
 - Dependency Injection
 - Clean Architecture
 - 軟刪除 (Soft Delete)
+- 資料庫交易處理
 - 單元測試覆蓋
 
 ## 環境需求
@@ -59,32 +58,24 @@ PropertyManagementSystem/
 
 ## 快速開始
 
-### 1. 啟動資料庫
+### 1. 啟動系統
 
 ```bash
-# 啟動 SQL Server Docker 容器
-docker-compose up -d
+# 啟動 Docker 容器 (資料庫 + Web 應用)
+docker-compose up -d --build
 ```
 
-### 2. 建立資料庫
+### 2. 初始化資料庫
 
 ```bash
-# 進入 Web 專案目錄
-cd PropertyManagementSystem.Web
-
-# 建立 Migration
-dotnet ef migrations add InitialCreate --project ../PropertyManagementSystem.Data
-
-# 更新資料庫
-dotnet ef database update --project ../PropertyManagementSystem.Data
+# 複製SQL腳本到容器並執行
+docker cp CreatePropertyDb.sql property_management_db:/var/opt/mssql/
+docker exec property_management_db /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P "Property123!" -C -i /var/opt/mssql/CreatePropertyDb.sql
 ```
 
-### 3. 執行應用程式
+### 3. 訪問應用
 
-```bash
-# 執行 Web 應用程式
-dotnet run --project PropertyManagementSystem.Web
-```
+開啟瀏覽器，訪問 `http://localhost:5213`
 
 ### 4. 執行測試
 
@@ -95,97 +86,115 @@ dotnet test
 
 ## 使用說明
 
-1. 開啟瀏覽器，訪問 `https://localhost:5001`
-2. 點擊導航欄中的「房屋物件」進入物件管理頁面
-3. 使用搜尋表單篩選物件
-4. 點擊「新增物件」建立新的房屋物件
-5. 點擊「詳細資料」查看物件詳情
-6. 點擊「編輯」修改物件資訊
-7. 點擊「刪除」移除物件
+### 基本操作
+1. **首頁** - 查看物件統計和最新物件
+2. **物件列表** - 瀏覽和搜尋所有物件
+3. **新增物件** - 建立新的房屋物件 (包含圖片URL)
+4. **編輯物件** - 修改物件資訊
+5. **刪除物件** - 點擊刪除按鈕會彈出確認對話框
+
+### 搜尋功能
+- 按城市、區域篩選
+- 按物件類型篩選
+- 按狀態篩選  
+- 設定價格範圍
 
 ## 資料庫設定
 
-系統使用 SQL Server 作為資料庫，連線字串設定在 `appsettings.json`:
+系統使用 SQL Server 作為資料庫，Docker配置：
 
+```yaml
+# docker-compose.yml
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: property_management_db
+    ports:
+      - "1433:1433"
+    environment:
+      - SA_PASSWORD=Property123!
+```
+
+連線字串在 `appsettings.json`:
 ```json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost,1433;Database=PropertyManagementDB;User Id=sa;Password=YourPassword123!;TrustServerCertificate=true;"
+    "DefaultConnection": "Server=localhost,1433;Database=PropertyManagement;User=sa;Password=Property123!;TrustServerCertificate=true;"
   }
 }
 ```
 
-## API 文件
+## 主要功能路由
 
-系統提供以下主要功能：
-
-### 房屋物件管理
-- `GET /Properties` - 取得房屋物件列表
-- `GET /Properties/Details/{id}` - 取得特定物件詳情
-- `GET /Properties/Create` - 顯示新增物件表單
+- `GET /` - 首頁
+- `GET /Properties` - 物件列表 (支援搜尋參數)
+- `GET /Properties/Details/{id}` - 物件詳情
+- `GET /Properties/Create` - 新增物件表單
 - `POST /Properties/Create` - 建立新物件
-- `GET /Properties/Edit/{id}` - 顯示編輯物件表單
+- `GET /Properties/Edit/{id}` - 編輯物件表單  
 - `POST /Properties/Edit/{id}` - 更新物件
-- `GET /Properties/Delete/{id}` - 顯示刪除確認頁面
-- `POST /Properties/Delete/{id}` - 刪除物件
+- `POST /Properties/Delete` - 刪除物件 (Modal方式)
 
 ## 開發指南
 
 ### 新增功能
 
-1. 在 Core 層定義新的介面和服務
-2. 在 Data 層實作 Repository
-3. 在 Web 層建立控制器和視圖
-4. 撰寫對應的單元測試
+1. 在 `Core/Interfaces` 定義新介面
+2. 在 `Core/Services` 實作業務邏輯
+3. 在 `Data/Repositories` 實作資料存取
+4. 在 `Web/Controllers` 建立控制器
+5. 在 `Web/Views` 建立視圖
+6. 在 `Tests` 撰寫單元測試
 
 ### 資料庫變更
 
-```bash
-# 建立新的 Migration
-dotnet ef migrations add <MigrationName> --project PropertyManagementSystem.Data
-
-# 套用 Migration
-dotnet ef database update --project PropertyManagementSystem.Data
-```
+1. 修改 `CreatePropertyDb.sql`
+2. 重新執行資料庫初始化腳本
 
 ## 測試策略
 
-- 單元測試使用 xUnit 框架
-- 使用 InMemory 資料庫進行測試
-- 使用 Moq 框架進行依賴注入模擬
-- 測試覆蓋率包含服務層和資料存取層
+- **單元測試**: 使用 xUnit 框架測試業務邏輯
+- **Mock 框架**: 使用 Moq 進行依賴注入模擬
+- **測試範圍**: 涵蓋 PropertyService 的主要功能
+- **測試執行**: `dotnet test` 執行所有測試
 
-## 部署注意事項
+## 系統狀態
 
-### 生產環境設定
-1. 更新連線字串指向正式資料庫
-2. 設定適當的日誌等級
-3. 啟用 HTTPS
-4. 設定適當的快取策略
+- ✅ **專案已完成建立**
+- ✅ **資料庫**: SQL Server Docker容器運行正常
+- ✅ **Web應用**: 運行在 http://localhost:5213
+- ✅ **單元測試**: 所有測試通過
+- ✅ **CRUD功能**: 完整實作包含圖片上傳
+- ✅ **UI優化**: 簡化介面，移除教學內容
 
-### Docker 部署
-```bash
-# 建置 Docker 映像
-docker build -t property-management-system .
+## 故障排除
 
-# 執行容器
-docker run -p 5000:80 property-management-system
-```
+### 常見問題
 
-## 貢獻指南
+1. **資料庫連線失敗**
+   ```bash
+   # 檢查Docker容器狀態
+   docker ps
+   
+   # 重啟容器
+   docker-compose restart
+   ```
 
-1. Fork 此專案
-2. 建立功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交變更 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 開啟 Pull Request
+2. **編譯錯誤**
+   ```bash
+   # 停止所有dotnet進程
+   taskkill /F /IM dotnet.exe
+   
+   # 重新建置
+   dotnet build
+   ```
+
+3. **Port占用**
+   ```bash
+   # 檢查Port使用狀況
+   netstat -ano | findstr :5213
+   ```
 
 ## 授權
 
-此專案採用 MIT 授權條款 - 詳見 [LICENSE](LICENSE) 檔案
-
-## 聯絡資訊
-
-如有任何問題或建議，請聯絡：
-- Email: [your-email@example.com]
-- GitHub: [your-github-username]
+此專案採用 MIT 授權條款
